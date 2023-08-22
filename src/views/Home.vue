@@ -1,15 +1,6 @@
 <template>
   <div class="flex justify-center flex-col p-8">
-    <div>
-      <input
-        type="text"
-        name=""
-        id=""
-        class="border-2 p-2 border-gray-200 rounded w-full"
-        placeholder="Search for Meals"
-      />
-    </div>
-
+   
     <div class="flex justify-center mt-2 gap-2">
       <router-link
         :to="{ name: 'byLetter', params: { letter } }"
@@ -21,7 +12,6 @@
 
     </div>
   </div>
-      <!-- <pre>{{ingredents}}</pre> -->
 </template>
 
 <script setup>
