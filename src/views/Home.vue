@@ -1,16 +1,8 @@
 <template>
   <div class="flex justify-center flex-col p-8">
+      Home Page
    
-    <div class="flex justify-center mt-2 gap-2">
-      <router-link
-        :to="{ name: 'byLetter', params: { letter } }"
-        v-for="letter of letters"
-        :key="letter"
-      >
-        {{ letter }}
-      </router-link>
 
-    </div>
   </div>
 </template>
 
@@ -19,7 +11,7 @@ import {ref, computed, onMounted } from "vue";
 import store from "../store";
 import axiosClient from '../axiosClient.js'
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
 
 // ingredents
 const ingredents=ref([])
