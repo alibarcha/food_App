@@ -39,7 +39,12 @@ const searchMealsData = computed(() => {
 
 // search meals function
 const searchMeal = () => {
-  store.dispatch("searchMeals", keyword.value);
+  if(keyword.value){
+    store.dispatch("searchMeals", keyword.value);
+  }
+  else{
+    store.commit("setSearchMeals",[])
+  }
 };
 
 onMounted(() => {

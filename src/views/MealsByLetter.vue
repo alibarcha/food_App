@@ -11,10 +11,8 @@
       </router-link>
     </div>
 
-  
-     
-      <!-- meal item card component -->
-    <div
+    <!-- meal item card component -->
+    <!-- <div
       class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-8 my-10"
     >
       <MealItem
@@ -23,7 +21,11 @@
         :meal="meal"
       >
       </MealItem>
-    </div>
+    </div> -->
+
+    <Meals :meals="searchMelaByLetterData"></Meals>
+
+
   </div>
 </template>
 
@@ -31,7 +33,8 @@
 import { computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import store from "../store";
-import MealItem from '../components/MealItem.vue'
+// import MealItem from "../components/MealItem.vue";
+import Meals from '../components/Meals.vue'
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -44,17 +47,15 @@ const searchMelaByLetterData = computed(() => {
   return store.state.mealsByLetter;
 });
 
-
-
 // search meals function
 
 onMounted(() => {
   store.dispatch("searchMealsByLetter", route.params.letter);
 });
 
-watch(route,()=>{
-   store.dispatch("searchMealsByLetter", route.params.letter);
-})
+watch(route, () => {
+  store.dispatch("searchMealsByLetter", route.params.letter);
+});
 </script>
 
 <style>
