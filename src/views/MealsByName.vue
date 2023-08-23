@@ -27,7 +27,7 @@ import { computed, onMounted, ref } from "vue";
 import axiosClient from "../axiosClient";
 import store from "../store";
 import { useRoute } from "vue-router";
-import MealItem from "./MealItem.vue";
+import MealItem from '../components/MealItem.vue'
 
 const route = useRoute();
 

@@ -13,10 +13,10 @@
 
   
      
+      <!-- meal item card component -->
     <div
       class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-8 my-10"
     >
-      <!-- meal item card component -->
       <MealItem
         v-for="meal in searchMelaByLetterData"
         :key="meal.idMeal"
@@ -31,7 +31,7 @@
 import { computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import store from "../store";
-import MealItem from "./MealItem.vue";
+import MealItem from '../components/MealItem.vue'
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 

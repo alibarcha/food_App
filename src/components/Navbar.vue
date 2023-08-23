@@ -21,6 +21,11 @@
         class="inline-flex items-center px-2 h-full hover:bg-purple-200"
         >Meals By Ingredients</router-link
       >
+       <router-link
+        :to="{ name: 'ingredient' }"
+        class="inline-flex items-center px-2 h-full hover:bg-purple-200"
+        >Ingredients</router-link
+      >
     </div>
   </header>
 </template>

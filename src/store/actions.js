@@ -10,11 +10,20 @@ export default {
   },
 
   // meals by letter
-  searchMealsByLetter({commit},letter){
+  searchMealsByLetter({ commit }, letter) {
     axiosClient.get(`search.php?f=${letter}`)
-    .then(({data})=>{
-      commit('setMealsByLetter',data.meals)
-    })
+      .then(({ data }) => {
+        commit('setMealsByLetter', data.meals)
+      })
+  },
+
+  // melas by ingredient
+  searchMealsByIngredient({ commit }, ing) {
+    axiosClient.get(`filter.php?i=${ing}`)
+      .then(({ data }) => {
+        commit('setMealsByIngredients', data.meals)
+      })
   }
+
 
 }
