@@ -22,7 +22,7 @@
       <p>{{ ingredient.strDescription }}</p>
     </router-link>
   </div>
-  <pre>{{ ingredients }}</pre>
+  <!-- <pre>{{ ingredients }}</pre> -->
 </template>
 
 <script setup>

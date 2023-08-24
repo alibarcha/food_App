@@ -9,6 +9,8 @@ import MealsByIngredient from '../views/MealsByIngredient.vue'
 import MealDetails from '../views/MealDetails.vue'
 import Ingredient from '../views/Ingredient.vue'
 
+import NotFound from '../views/NotFound.vue'
+
 
 const routes = [
     {
@@ -44,6 +46,11 @@ const routes = [
                 path:'/meal/:id?',
                 name:'mealDetails',
                 component:MealDetails
+            },
+            {
+                path:'/:pathMatch(.*)*',
+                name:'notFound',
+                component:NotFound,
             }
 
         ]

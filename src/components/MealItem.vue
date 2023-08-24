@@ -11,8 +11,7 @@
     <div class="px-5 py-6">
       <h3 class="font-bold">{{ meal.strMeal }}</h3>
       <p class="mb-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-        deleniti corrupti quasi est vel nemo!
+      {{ filter.truncateWords(meal.strInstructions, 25) }}...
       </p>
       <div class="">
         <a
@@ -34,6 +33,7 @@
 </template>
 
 <script setup>
+import filter from "../filters/filter.js";
 const { meal } = defineProps({
   meal: {
     type: Object,

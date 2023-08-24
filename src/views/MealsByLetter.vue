@@ -1,6 +1,6 @@
 <template>
   <div>
-    Seaarch by letter
+    Search by letter
     <div class="flex justify-center mt-2 gap-2">
       <router-link
         :to="{ name: 'byLetter', params: { letter } }"
@@ -11,17 +11,6 @@
       </router-link>
     </div>
 
-    <!-- meal item card component -->
-    <!-- <div
-      class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-8 my-10"
-    >
-      <MealItem
-        v-for="meal in searchMelaByLetterData"
-        :key="meal.idMeal"
-        :meal="meal"
-      >
-      </MealItem>
-    </div> -->
 
     <Meals :meals="searchMelaByLetterData"></Meals>
 
