@@ -1,7 +1,8 @@
 <template>
   <Navbar></Navbar>
-  <main>
+  <main class="container border mx-auto">
     <router-view></router-view>
+    
   </main>
 </template>
 

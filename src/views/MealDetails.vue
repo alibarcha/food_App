@@ -1,7 +1,7 @@
 <template>
   <div class="mt-10 max-w-[800px] mx-auto p-8">
-    <h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
     <img :src="meal.strMealThumb" :alt="meal.strMeal"  class="max-w-[100%] "/>
+    <h1 class="text-5xl font-bold my-5">{{ meal.strMeal }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 text-lg py-2">
       <div><span class="font-bold">Category: </span>{{ meal.strCategory }}</div>
       <div><span class="font-bold">Area: </span> {{ meal.strArea }}</div>
