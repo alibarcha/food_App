@@ -8,12 +8,12 @@
       />
     </router-link>
     <!-- card content -->
-    <div class="px-5 py-6">
+    <div class="px-5 py-5">
       <h3 class="font-bold">{{ meal.strMeal }}</h3>
-      <p class="mb-5">
-      {{ filter.truncateWords(meal.strInstructions, 25) }}...
+      <p class="mb-5 mt-1 text-sm" v-if="meal.strInstructions">
+      {{ filter.truncateWords(meal.strInstructions, 20) }}...
       </p>
-      <div class="">
+      <div class="mb-2 mt-6">
         <a
           :href="meal.strYoutube"
           target="_blank"

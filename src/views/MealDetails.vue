@@ -1,7 +1,8 @@
 <template>
-  <div class="mt-10 max-w-[800px] mx-auto p-8">
-    <img :src="meal.strMealThumb" :alt="meal.strMeal"  class="max-w-[100%] "/>
-    <h1 class="text-5xl font-bold my-5">{{ meal.strMeal }}</h1>
+  <div class="max-w-[800px] mx-auto px-14">
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Meal Details</h3>
+    <img :src="meal.strMealThumb" :alt="meal.strMeal"  class="  h-96 w-full object-cover"/>
+    <h1 class="text-3xl font-bold my-5">{{ meal.strMeal }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 text-lg py-2">
       <div><span class="font-bold">Category: </span>{{ meal.strCategory }}</div>
       <div><span class="font-bold">Area: </span> {{ meal.strArea }}</div>
@@ -9,9 +10,9 @@
     </div>
 
     <!-- Instructions -->
-    <div class="my-3">
+    <p class="my-3 text-sm">
         {{meal.strInstructions}}
-    </div>
+    </p>
 
 
     <!-- ingredients and Measures -->

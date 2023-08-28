@@ -1,8 +1,7 @@
 <template>
-
-  <nav class="bg-white border-gray-200 dark:bg-gray-900 shadow-md">
+  <nav class="bg-white border-gray-200 dark:bg-gray-900 shadow-md fixed right-0 left-0">
     <div
-      class="max-w-screen-xl flex lg:flex-nowrap flex-wrap items-center justify-between mx-auto p-4"
+      class="max-w-screen-xl  flex lg:flex-nowrap flex-wrap items-center justify-between mx-auto p-2"
     >
       <router-link
         :to="{ name: 'home' }"
@@ -105,11 +104,11 @@
       </div>
       <div
         v-if="dropdownMenu"
-        class="items-center md:relative absolute md:justify-center md:left-auto left-0 md:right-auto right-0 md:top-auto top-20 z-40 md:shadow-none shadow-xl justify-between md:w-full w-11/12 mx-auto md:flex md:order-1 md:my-5 my-auto"
+        class="items-center md:relative absolute md:justify-center md:left-auto left-0 md:right-auto right-0 md:top-auto top-14 z-40 md:shadow-none shadow-xl justify-between md:w-full w-11/12 mx-auto md:flex md:order-1 md:my-5 my-auto"
         id="navbar-user"
       >
         <ul
-          class="flex flex-col font-medium p-4 md:p-0  border-gray-100 bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0  md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          class="flex flex-col font-medium p-4 md:p-0 border-gray-100 bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
         >
           <li class="md:mb-0 mb-2">
             <router-link
@@ -155,7 +154,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 //user profile
 const profile = ref(false);
@@ -163,10 +162,9 @@ const openUserProfile = () => {
   profile.value = !profile.value;
 };
 
+
 // dropdownMenu
 const dropdownMenu = ref(true);
-
-
 
 const toggleDropdown = () => {
   dropdownMenu.value = !dropdownMenu.value;

@@ -1,10 +1,7 @@
 <template>
   <div>
-    Meals by ingredients
-
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4"> Meals by ingredients</h3>
     <Meals :meals="meals"></Meals>
-
-
   </div>
 </template>
 

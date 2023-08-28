@@ -1,6 +1,7 @@
 <template>
   <div>
-    Search by letter
+  
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Meals by letter</h3>
     <div class="flex justify-center mt-2 gap-2">
       <router-link
         :to="{ name: 'byLetter', params: { letter } }"

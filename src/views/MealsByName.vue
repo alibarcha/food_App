@@ -1,5 +1,6 @@
 <template>
   <div class="p-8 pb-1">
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Meals by Name</h3>
     <input
       type="text"
       name=""

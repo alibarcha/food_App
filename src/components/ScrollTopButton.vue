@@ -11,7 +11,7 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
-const showButton = ref(true);
+const showButton = ref(false);
 
 const scrollTop = () => {
   window.scrollTo({

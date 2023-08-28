@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center flex-col p-8">
-    <h3 class="text-3xl font-bold uppercase text-red-500 ">Random Meals</h3>
+  <div class="flex justify-center flex-col">
+    <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Random Meals</h3>
     <Meals :meals="[...ingredents]"></Meals>
   </div>
 </template>
