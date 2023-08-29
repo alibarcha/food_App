@@ -3,12 +3,10 @@
      <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Meals by Name</h3>
     <input
       type="text"
-      name=""
       v-model="keyword"
-      id=""
-      class="border-2 p-2 border-gray-200 rounded w-full"
       placeholder="Search for Meals"
       @change="searchMeal"
+      class="border-2 p-2 border-gray-200  rounded w-full outline-red-500 "
     />
     <!-- search melas cards -->
     <div

@@ -1,12 +1,10 @@
 <template>
   <div class="p-8">
-     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Ingredients</h3>
+    <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Ingredients</h3>
     <input
       type="text"
-      name=""
       v-model="keyword"
-      id=""
-      class="border-2 p-2 border-gray-200 rounded w-full mb-8"
+      class="border-2 p-2 border-gray-200 rounded w-full mb-8 outline-red-500"
       placeholder="Search for Ingredeints"
     />
     <router-link
@@ -14,16 +12,16 @@
         name: 'byIngredient',
         params: { ingredient: ingredient.strIngredient },
       }"
-      class="block bg-white rounded p-3 mb-8 shadow py-4"
+      class="block bg-white rounded p-3 mb-8 shadow-lg border py-4 transform scale-100 hover:scale-105 transition-all"
       v-for="ingredient in computedIngredient"
       :key="ingredient.idIngredient"
     >
       <h3 class="text-2xl font-boldmb-2">{{ ingredient.strIngredient }}</h3>
-      <p class="text-sm " v-if="ingredient.strDescription">{{filter.truncateWords( ingredient.strDescription,20) }}...</p>
+      <p class="text-sm" v-if="ingredient.strDescription">
+        {{ filter.truncateWords(ingredient.strDescription, 20) }}...
+      </p>
     </router-link>
   </div>
- 
-
 </template>
 
 <script setup>
@@ -31,14 +29,13 @@ import { computed, onMounted, ref } from "vue";
 import axiosClient from "../axiosClient";
 import filter from "../filters/filter";
 
-
 const ingredients = ref([]);
 
 onMounted(() => {
   axiosClient.get("list.php?i=list").then(({ data }) => {
     ingredients.value = data.meals;
   });
-  console.log('ing',ingredients)
+  console.log("ing", ingredients);
 });
 
 const keyword = ref("");

@@ -1,6 +1,6 @@
 <template>
      <Navbar></Navbar>
-  <main class="container border mx-auto px-6 pt-28 ">
+  <main class="container  mx-auto px-6 pt-28 pb-10 ">
     <router-view></router-view>
   </main>
 </template>
