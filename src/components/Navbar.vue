@@ -1,18 +1,20 @@
 <template>
-  <nav class="bg-white border-gray-200 z-50 dark:bg-gray-900 shadow-md fixed right-0 left-0">
+  <nav
+    class="bg-white border-gray-200 z-50 dark:bg-gray-900 shadow-md fixed right-0 left-0"
+  >
     <div
-      class="max-w-screen-xl  flex lg:flex-nowrap flex-wrap items-center justify-between mx-auto p-2"
+      class="max-w-screen-xl flex lg:flex-nowrap flex-wrap items-center justify-between mx-auto p-2"
     >
-      <router-link
-        :to="{ name: 'home' }"
-        class="flex items-center text-2xl font-bold text-red-500"
+      <div
+        class="flex items-center text-2xl font-bold text-red-500 underline"
+        @click="gotoHomePage"
       >
         <img src="../assets/food.png" class="h-8 mr-1" alt="Logo" />
         <span
           class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
           >Recipes</span
         >
-      </router-link>
+      </div>
       <div class="flex items-center lg:order-3 relative">
         <button
           @click="openUserProfile"
@@ -103,9 +105,9 @@
         </button>
       </div>
       <div
-        v-if="dropdownMenu"
         class="items-center md:relative absolute md:justify-center md:left-auto left-0 md:right-auto right-0 md:top-auto top-14 z-40 md:shadow-none shadow-xl justify-between md:w-full w-11/12 mx-auto md:flex md:order-1 md:my-5 my-auto"
         id="navbar-user"
+        :class="{ hidden: openNavLinks }"
       >
         <ul
           class="flex flex-col font-medium p-4 md:p-0 border-gray-100 bg-gray-100 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
@@ -114,6 +116,7 @@
             <router-link
               :to="{ name: 'home' }"
               class="block py-2 pl-3 pr-4 md:text-gray-900 text-white bg-red-500 rounded md:bg-transparent md:hover:text-red-500 md:p-0 md:hover:bg-transparent hover:bg-blue-400 md:dark:text-blue-500"
+              :class="{ activePage: route.name === 'home' }"
               >Home
             </router-link>
           </li>
@@ -121,6 +124,7 @@
             <router-link
               :to="{ name: 'byName' }"
               class="block py-2 pl-3 pr-4 md:text-gray-900 text-white bg-red-500 rounded md:bg-transparent md:hover:text-red-500 md:p-0 md:dark:text-blue-500 md:hover:bg-transparent hover:bg-blue-400"
+              :class="{ activePage: route.name === 'byName' }"
               aria-current="page"
             >
               Meals By Name
@@ -130,6 +134,7 @@
             <router-link
               :to="{ name: 'byLetter' }"
               class="block py-2 pl-3 pr-4 md:text-gray-900 text-white bg-red-500 md:bg-transparent rounded md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 md:hover:bg-transparent hover:bg-blue-400"
+              :class="{ activePage: route.name === 'byLetter' }"
               >Meals By Letters</router-link
             >
           </li>
@@ -137,6 +142,7 @@
             <router-link
               :to="{ name: 'byIngredient' }"
               class="block py-2 pl-3 pr-4 md:text-gray-900 text-white bg-red-500 md:bg-transparent rounded md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 md:hover:bg-transparent hover:bg-blue-400"
+              :class="{ activePage: route.name === 'byIngredient' }"
               >Meals By Ingredients</router-link
             >
           </li>
@@ -144,6 +150,7 @@
             <router-link
               :to="{ name: 'ingredient' }"
               class="block py-2 pl-3 pr-4 md:text-gray-900 text-white bg-red-500 md:bg-transparent rounded md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 md:hover:bg-transparent hover:bg-blue-400"
+              :class="{ activePage: route.name === 'ingredient' }"
               >Ingredients</router-link
             >
           </li>
@@ -155,6 +162,14 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
+const route = useRoute();
+const router = useRouter();
+
+const gotoHomePage = () => {
+  router.push("/");
+};
 
 //user profile
 const profile = ref(false);
@@ -162,15 +177,29 @@ const openUserProfile = () => {
   profile.value = !profile.value;
 };
 
-
+const openNavLinks = ref(true);
 // dropdownMenu
-const dropdownMenu = ref(true);
-
 const toggleDropdown = () => {
-  dropdownMenu.value = !dropdownMenu.value;
+  openNavLinks.value = !openNavLinks.value;
 };
 </script>
 
-<style>
+<style scoped>
+@media screen and (min-width:768px) {
+  .activePage{
+    color: red !important;
+    position: relative;
+} 
+ .activePage::after{
+   content: '';
+  width: 100%;
+  height: 2px;
+  background: red;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  border-radius: 10px !important;
+}
 
+  }
 </style>
