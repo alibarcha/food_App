@@ -13,7 +13,7 @@
       <p class="mb-5 mt-1 text-sm" v-if="meal.strInstructions">
         {{ filter.truncateWords(meal.strInstructions, 20) }}...
       </p>
-      <div :class="{ 'mb-2 mt-6': meal.strYoutube && meal.strSource }">
+      <div class="" :class="{ 'mb-2 mt-6': meal.strYoutube && meal.strSource }">
         <a
           v-if="meal.strYoutube"
           :href="meal.strYoutube"
@@ -25,9 +25,9 @@
           v-if="meal.strSource"
           :href="meal.strSource"
           target="_blank"
-          class="px-3 ms-3 py-2 border border-green-600 rounded bg-green-500 hover:bg-green-400 text-white transition-colors"
+          class="px-3 ms-6 py-2 border border-green-600 rounded bg-green-500 hover:bg-green-400 text-white transition-colors"
         >
-          View Detail
+          Detail
         </a>
       </div>
     </div>

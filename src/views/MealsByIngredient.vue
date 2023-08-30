@@ -1,6 +1,6 @@
 <template>
   <div>
-     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4"> Meals by ingredients</h3>
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-6"> <span class="text-gray-700"> Meals</span> by ingredients</h3>
     <Meals :meals="meals"></Meals>
   </div>
 </template>

@@ -1,18 +1,20 @@
 <template>
   <div class="max-w-[800px] mx-auto px-14 overflow-hidden">
-    <h3 class="text-3xl font-bold uppercase text-red-500 mb-5">Meal Details</h3>
+    <h3 class="text-3xl font-bold uppercase text-red-500 mb-6"><span class="text-gray-700"> Meals</span> Details</h3>
     <img
       :src="meal.strMealThumb"
       :alt="meal.strMeal"
       class="h-96 w-full object-cover transform scale-100 hover:scale-105 transition-all cursor-pointer rounded"
     />
-    <h1 class="text-3xl font-bold my-5">{{ meal.strMeal }}</h1>
+    <h1 class="text-3xl font-bold mt-6 mb-3">{{ meal.strMeal }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-lg py-2">
       <div>
         <span class="font-bold pr-2">Category: </span>{{ meal.strCategory }}
       </div>
       <div><span class="font-bold pr-2">Area: </span> {{ meal.strArea }}</div>
-      <div><span class="font-bold pr-2">Tags: </span> {{ meal.strTags }}</div>
+      <div v-if="meal.strTags">
+        <span class="font-bold pr-2">Tags: </span> {{ meal.strTags }}
+      </div>
     </div>
 
     <!-- Instructions -->

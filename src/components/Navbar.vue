@@ -1,12 +1,12 @@
 <template>
   <nav
-    class="bg-white border-gray-200 z-50 dark:bg-gray-900 shadow-md fixed right-0 left-0"
+    class="NavbarWrapper bg-white border-gray-200 z-50 dark:bg-gray-900 shadow-md fixed right-0 left-0"
   >
     <div
       class="max-w-screen-xl flex lg:flex-nowrap flex-wrap items-center justify-between mx-auto p-2"
     >
       <div
-        class="flex items-center text-2xl font-bold text-red-500 underline"
+        class="flex items-center text-3xl font-extrabold text-red-500"
         @click="gotoHomePage"
       >
         <img src="../assets/food.png" class="h-8 mr-1" alt="Logo" />
@@ -15,7 +15,7 @@
           >Recipes</span
         >
       </div>
-      <div class="flex items-center lg:order-3 relative">
+      <div class="userProfileWrapper flex items-center lg:order-3 relative">
         <button
           @click="openUserProfile"
           type="button"
@@ -171,35 +171,76 @@ const gotoHomePage = () => {
   router.push("/");
 };
 
-//user profile
+//--- user profile menu open or close ---
 const profile = ref(false);
 const openUserProfile = () => {
   profile.value = !profile.value;
 };
 
+const closeMenu = () => {
+  profile.value = false;
+};
+
+const handleClickOutside = (event) => {
+  if (!event.target.closest(".userProfileWrapper")) {
+    closeMenu();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("click", handleClickOutside);
+});
+
+
+// --- toggle navbar dropdownMenu ---
 const openNavLinks = ref(true);
-// dropdownMenu
+
 const toggleDropdown = () => {
   openNavLinks.value = !openNavLinks.value;
 };
+
+const closeDropdownMenu = () => {
+  openNavLinks.value = true;
+};
+
+const clickOutSideNavbar = (e) => {
+  if (!e.target.closest(".NavbarWrapper")) {
+    closeDropdownMenu();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("click", clickOutSideNavbar);
+});
+
+onUnmounted(() => {
+  window.addEventListener("click", clickOutSideNavbar);
+});
+
 </script>
 
+
 <style scoped>
+
 @media screen and (min-width:768px) {
   .activePage{
-    color: red !important;
+    color: #ef4444 !important;
     position: relative;
 } 
  .activePage::after{
    content: '';
   width: 100%;
   height: 2px;
-  background: red;
+  background: #ef4444;
   position: absolute;
   left: 0;
   bottom: -2px;
   border-radius: 10px !important;
 }
 
-  }
+}
 </style>

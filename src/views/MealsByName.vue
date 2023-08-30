@@ -1,6 +1,6 @@
 <template>
   <div class="p-8 pb-1">
-     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Meals by Name</h3>
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-6"><span class="text-gray-700"> Meals</span> by Name</h3>
     <input
       type="text"
       v-model="keyword"

@@ -60,13 +60,14 @@ const routes = [
         component:GuestLayout,
     }
 
-
-
 ]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
+    scrollBehavior(to,from,savedPosition){
+        return {top:0}
+    }
 })
 
 export default router;

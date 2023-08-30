@@ -1,6 +1,6 @@
 <template>
   <div>
-     <h3 class="text-3xl font-bold uppercase text-red-500 mb-4">Meals by letter</h3>
+     <h3 class="text-3xl font-bold uppercase text-red-500 mb-6"><span class="text-gray-700"> Meals</span> by letter</h3>
     <div class="flex justify-center my-6 gap-3">
       <router-link
         :to="{ name: 'byLetter', params: { letter } }"
