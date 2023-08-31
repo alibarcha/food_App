@@ -19,7 +19,7 @@ const meals = computed(() => {
   return store.state.mealsByIngredients;
 });
 
-console.log('ingr',meals)
+// console.log('ingr',meals)
 
 onMounted(() => {
   store.dispatch("searchMealsByIngredient", route.params.ingredient);

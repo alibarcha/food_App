@@ -1,11 +1,20 @@
 <template>
-  <div class="max-w-[800px] mx-auto px-14 overflow-hidden">
-    <h3 class="text-3xl font-bold uppercase text-red-500 mb-6"><span class="text-gray-700"> Meals</span> Details</h3>
-    <img
-      :src="meal.strMealThumb"
-      :alt="meal.strMeal"
-      class="h-96 w-full object-cover transform scale-100 hover:scale-105 transition-all cursor-pointer rounded"
-    />
+  <div class="max-w-[800px] mx-auto px-5 overflow-hidden">
+    <h3 class="text-3xl font-bold uppercase text-red-500 mb-6">
+      <span class="text-gray-700"> Meals</span> Details
+    </h3>
+
+    <iframe
+      class="rounded transform scale-100 hover:scale-105 transition-all"
+      width="100%"
+      height="420"
+      :src="video"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+
     <h1 class="text-3xl font-bold mt-6 mb-3">{{ meal.strMeal }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-lg py-2">
       <div>
@@ -61,6 +70,7 @@
         >YouTube</a
       >
       <a
+        v-if="meal.strSource"
         :href="meal.strSource"
         target="_blank"
         class="px-3 ms-5 py-2 border border-green-600 rounded bg-green-500 hover:bg-green-400 text-white transition-colors"
@@ -69,20 +79,23 @@
       </a>
     </div>
   </div>
-  <!-- <pre> {{ meal }}</pre> -->
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import axiosClient from "../axiosClient";
 
 const route = useRoute();
 const meal = ref({});
 
+// video
+const video = computed(() => {
+  return meal.value?.strYoutube?.replace("watch?v=", "embed/");
+});
+
 onMounted(() => {
   axiosClient.get(`lookup.php?i=${route.params.id}`).then(({ data }) => {
-    // console.log('detail',data)
     meal.value = data.meals[0] || {};
   });
 });
