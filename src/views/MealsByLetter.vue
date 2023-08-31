@@ -1,12 +1,13 @@
 <template>
   <div>
      <h3 class="text-3xl font-bold uppercase text-red-500 mb-6"><span class="text-gray-700"> Meals</span> by letter</h3>
-    <div class="flex justify-center my-6 gap-3">
+    <div class="flex justify-center flex-wrap md:my-6 my-2 md:gap-3 gap-2">
       <router-link
         :to="{ name: 'byLetter', params: { letter } }"
         v-for="letter of letters"
         :key="letter"
         class="text-sm font-bold transform scale-100  hover:scale-150  transition-all hover:text-red-500"
+        :class="{'text-red-500 scale-150':route.path===`/by-letter/${letter}`}"
       >
         {{ letter }}
       </router-link>
@@ -19,21 +20,18 @@
 import { computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import store from "../store";
-// import MealItem from "../components/MealItem.vue";
 import Meals from '../components/Meals.vue'
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-// const letter=ref()
 const route = useRoute();
 
-// render state searchby letter data
+console.log('rou',route)
 
+// render state searchby letter data
 const searchMelaByLetterData = computed(() => {
   return store.state.mealsByLetter;
 });
-
-// search meals function
 
 onMounted(() => {
   store.dispatch("searchMealsByLetter", route.params.letter);
@@ -42,6 +40,7 @@ onMounted(() => {
 watch(route, () => {
   store.dispatch("searchMealsByLetter", route.params.letter);
 });
+
 </script>
 
 <style>

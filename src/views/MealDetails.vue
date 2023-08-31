@@ -8,7 +8,7 @@
       class="rounded transform scale-100 hover:scale-105 transition-all"
       width="100%"
       height="420"
-      :src="video"
+      :src="video+'?&autoplay=1'"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

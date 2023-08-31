@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="NavbarWrapper bg-white border-gray-200 z-50 dark:bg-gray-900 shadow-md fixed right-0 left-0"
+    class="NavbarWrapper bg-white border-gray-200 z-50 dark:bg-gray-900 shadow fixed right-0 left-0"
   >
     <div
       class="max-w-screen-xl flex lg:flex-nowrap flex-wrap items-center justify-between mx-auto p-2"
