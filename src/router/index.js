@@ -47,17 +47,18 @@ const routes = [
                 name:'mealDetails',
                 component:MealDetails
             },
-            {
-                path:'/:pathMatch(.*)*',
-                name:'notFound',
-                component:NotFound,
-            }
+           
 
         ]
     },
     {
         path:'/guest',
         component:GuestLayout,
+    },
+    {
+        path:'/:pathMatch(.*)*',
+        name:'notFound',
+        component:NotFound,
     }
 
 ]

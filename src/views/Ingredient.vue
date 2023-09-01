@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8">
+  <div>
     <h3 class="text-3xl font-bold uppercase text-red-500 mb-6">Ingredients</h3>
     <input
       type="text"

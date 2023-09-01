@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[800px] mx-auto px-5 overflow-hidden">
+  <div class=" mx-auto px-44">
     <h3 class="text-3xl font-bold uppercase text-red-500 mb-6">
       <span class="text-gray-700"> Meals</span> Details
     </h3>
@@ -7,7 +7,7 @@
     <iframe
       class="rounded transform scale-100 hover:scale-105 transition-all"
       width="100%"
-      height="420"
+      height="440"
       :src="video"
       title="YouTube video player"
       frameborder="0"
