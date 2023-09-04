@@ -1,7 +1,7 @@
 <template>
      <Navbar v-if="showHeader"></Navbar>
      <!-- px-6 pt-28 pb-10 -->
-  <main class="container  mx-auto mt-28 mb-20 px-5 ">
+  <main class="container  mx-auto sm:mt-28 mt-24 sm:mb-20 mb-16 sm:px-5 px-3 ">
     <router-view></router-view>
   </main>
   <Footer v-if="showFooter"></Footer>

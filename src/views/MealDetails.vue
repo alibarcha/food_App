@@ -1,13 +1,13 @@
 <template>
-  <div class=" mx-auto px-44">
+  <div class=" mx-auto lg:px-44 px-0">
     <h3 class="text-3xl font-bold uppercase text-red-500 mb-6">
       <span class="text-gray-700"> Meals</span> Details
     </h3>
 
     <iframe
       class="rounded transform scale-100 hover:scale-105 transition-all"
-      width="100%"
-      height="440"
+      width="95%"
+      height="400"
       :src="video"
       title="YouTube video player"
       frameborder="0"
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Instructions -->
-    <p class="my-3 text-sm">
+    <p class="my-2 text-justify text-sm">
       {{ meal.strInstructions }}
     </p>
 
